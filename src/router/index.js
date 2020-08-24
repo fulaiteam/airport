@@ -17,7 +17,17 @@ export default new Router({
                     name: 'index',
                     component: resolve => require(['@/pages/index'], resolve),
                 },
-
+                {   // 大会专题  congressDes
+                    path: '/home/congressTopics',
+                    name: 'congressTopics',
+                    component: resolve => require(['@/pages/congressTopics/congressTopics'], resolve),
+                },
+                {   // 大会介绍  congressTopics
+                    path: '/home/congressDes',
+                    name: 'congressDes',
+                    component: resolve => require(['@/pages/congressTopics/congressDes'], resolve),
+                },
+                
 
             ]
         },

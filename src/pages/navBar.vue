@@ -30,7 +30,7 @@
                     },
                     {
                         name:'大会专题',
-                        url:''
+                        url:'congressTopics'
                     },
                     {
                         name:'大会嘉宾'
