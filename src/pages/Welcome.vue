@@ -2,15 +2,7 @@
     <div class="no-msg top">
         <div>
             <div class="topb w10 flex-center">
-                <span class="topl"  @click='ceshi' >你好!</span>
-            </div>
-            <div class="topb w10 flex-center">
-                欢迎来到团购-管理系统V1.0
-            </div>
-            <div class="beian">
-                <a href="http://www.beian.miit.gov.cn" target="_blank">
-                    津ICP备19005240号-2
-                </a>
+                <span class="topl"  @click='ceshi' >内容</span>
             </div>
         </div>
     </div>

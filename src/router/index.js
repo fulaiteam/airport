@@ -10,12 +10,12 @@ export default new Router({
             name: 'Home',
             component: resolve => require(['@/pages/Home'], resolve),
             //项目已通过审核列表
-            redirect: {name: 'welcome'},
+            redirect: {name: 'index'},
             children: [
                 {   // 欢迎页面
-                    path: '/home/welcome',
-                    name: 'welcome',
-                    component: resolve => require(['@/pages/Welcome'], resolve),
+                    path: '/home/index',
+                    name: 'index',
+                    component: resolve => require(['@/pages/index'], resolve),
                 },
 
 

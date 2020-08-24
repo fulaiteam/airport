@@ -1,6 +1,6 @@
 <template>
     <div class="hj-home">
-
+            <NavBar></NavBar>
 
             <el-main style="box-sizing: border-box;padding: 10px 20px;">
                 <router-view/>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-
+    import   NavBar  from './navBar.vue';
     export default {
         name: "home",
         data() {
@@ -31,6 +31,9 @@
         methods: {
 
         },
+        components:{
+            NavBar
+        }
 
     }
 </script>
