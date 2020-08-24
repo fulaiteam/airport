@@ -12,11 +12,12 @@ export default new Router({
             //项目已通过审核列表
             redirect: {name: 'index'},
             children: [
-                {   // 欢迎页面
+                {
                     path: '/home/index',
                     name: 'index',
                     component: resolve => require(['@/pages/index'], resolve),
                 },
+<<<<<<< HEAD
                 {   // 大会专题  congressDes
                     path: '/home/congressTopics',
                     name: 'congressTopics',
@@ -28,6 +29,14 @@ export default new Router({
                     component: resolve => require(['@/pages/congressTopics/congressDes'], resolve),
                 },
                 
+=======
+                {
+                    path: '/home/index2',
+                    name: 'index',
+                    component: resolve => require(['@/pages/indexSecondary'], resolve),
+                },
+
+>>>>>>> b2c02571e09df98f22dc6a02ce602ef5b6fdce9e
 
             ]
         },
