@@ -2,9 +2,8 @@
     <div class="hj-home">
             <NavBar></NavBar>
 
-            <el-main style="box-sizing: border-box;padding: 10px 20px;">
                 <router-view/>
-            </el-main>
+
 
 
     </div>

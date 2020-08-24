@@ -264,3 +264,7 @@
     [v-cloak] {
   display: none;
 }
+.content_center_c{
+    width:1200px;
+    margin:0 auto;
+}

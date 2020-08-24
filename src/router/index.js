@@ -12,10 +12,15 @@ export default new Router({
             //项目已通过审核列表
             redirect: {name: 'index'},
             children: [
-                {   // 欢迎页面
+                {
                     path: '/home/index',
                     name: 'index',
                     component: resolve => require(['@/pages/index'], resolve),
+                },
+                {
+                    path: '/home/index2',
+                    name: 'index',
+                    component: resolve => require(['@/pages/indexSecondary'], resolve),
                 },
 
 
