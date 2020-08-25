@@ -79,9 +79,7 @@
     color: #535353;
     font-size: 18px;
 }
-.intrduce .intruduce_con{
-    width: 1200px;
-}
+
 .intrduce .intruduce_con{
     width: 1095px;
     margin: 0 52.5px;

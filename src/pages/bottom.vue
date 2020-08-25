@@ -1,5 +1,5 @@
 <template>
-    <div class='bottom' >
+    <div class='bottom'>
         <div class="bot_content">
             <div class="title">
                 首都机场集团四型机场会务部

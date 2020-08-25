@@ -36,7 +36,8 @@
                         name:'大会嘉宾'
                     },
                     {
-                        name:'云展厅'
+                        name:'云展厅',
+                        url:'yunExhibitionhall'
                     },
                     {
                         name:'云体验'
