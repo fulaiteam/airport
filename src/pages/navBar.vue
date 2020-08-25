@@ -33,19 +33,22 @@
                         url:'congressTopics'
                     },
                     {
-                        name:'大会嘉宾'
+                        name:'大会嘉宾',
+                        url:'conferenceGuests'
                     },
                     {
                         name:'云展厅'
                     },
                     {
-                        name:'云体验'
+                        name:'云体验',
+                        url:'cloudExperience'
                     },
                     {
                         name:'云会谈'
                     },
                     {
-                        name:'新闻资讯'
+                        name:'新闻资讯',
+                        url:'newsInfo'
                     },
                     {
                         name:'合作伙伴'
