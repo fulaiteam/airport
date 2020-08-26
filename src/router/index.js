@@ -27,7 +27,6 @@ export default new Router({
                     name: 'congressDes',
                     component: resolve => require(['@/pages/congressTopics/congressDes'], resolve),
                 },
-<<<<<<< HEAD
                  {   //大会专题-- 大会视频  congressVideo
                     path: '/home/congressVideo',
                     name: 'congressVideo',
@@ -59,10 +58,7 @@ export default new Router({
                     name: 'sceneDemonstration',
                     component: resolve => require(['@/pages/yunExhibitionhall/sceneDemonstration'], resolve),
                 },
-                {
-=======
                 {   //首页二级页面
->>>>>>> a7272aea50231859c8bf40401b75fd682c16a82a
                     path: '/home/index2',
                     name: 'index2',
                     component: resolve => require(['@/pages/indexPage/indexSecondary'], resolve),
@@ -96,6 +92,16 @@ export default new Router({
                     path: '/home/newsInfo',
                     name: 'newsInfo',
                     component: resolve => require(['@/pages/newsInfo/newsInfo'], resolve),
+                },
+                {   //新闻资讯二级页面
+                    path: '/home/newsInfosSecond',
+                    name: 'newsInfosSecond',
+                    component: resolve => require(['@/pages/newsInfo/newsInfosSecond'], resolve),
+                },
+                {   //联系我们
+                    path: '/home/contactUs',
+                    name: 'contactUs',
+                    component: resolve => require(['@/pages/contactUs/contactUs'], resolve),
                 },
 
 
