@@ -57,7 +57,8 @@
                         url:'cooperative'
                     },
                     {
-                        name:'联系我们'
+                        name:'联系我们',
+                        url:'contactUs'
                     },
                     {
                         name:'注册/登录',

@@ -159,6 +159,16 @@ const router = new Router({
                     name: 'newsInfo',
                     component: resolve => require(['@/pages/newsInfo/newsInfo'], resolve),
                 },
+                {   //新闻资讯二级页面
+                    path: '/home/newsInfosSecond',
+                    name: 'newsInfosSecond',
+                    component: resolve => require(['@/pages/newsInfo/newsInfosSecond'], resolve),
+                },
+                {   //联系我们
+                    path: '/home/contactUs',
+                    name: 'contactUs',
+                    component: resolve => require(['@/pages/contactUs/contactUs'], resolve),
+                },
 
 
 

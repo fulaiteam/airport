@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- 轮播图区域开始 -->
         <div   class='top_carousel_area' >
             <img src="../../assets/images/newsInfo/banner_1.png"   class='banner_bg' >
             <!-- 版心区域开始 -->
@@ -21,6 +22,37 @@
             </div>
             <!-- 版心区域结束 -->
         </div>
+        <!-- 轮播图区域结束 -->
+        <!-- 下部分版心区域开始 -->
+            <div   class='b_middle' >
+                <!-- 大会报道区域开始 -->
+                <div  class='con_title' >
+                    大会报道
+                </div>
+                <ul  class='con_ul' >
+                    <li  class='con_li' v-for='i in 4' >
+                        <img src="../../assets/images/newsInfo/theNewConsult.png" class='con_li_left'   @click='topage("newsInfosSecond")' >
+                        <div  class='con_li_right'  >
+首都机场集团将于2020年10月10日在线举办首届“四型机场”技术创新大会。届时首都机场集团将发布“四型机场”建设需求，国内大型机场集团、民航科研院所、技术设备厂商、互联网科创企业将共聚一堂，交流成功经验、展示科创产品、建立合作契机。
+                        </div>
+                    </li>
+                </ul>
+                <!-- 大会报道区域结束 -->
+                <!-- 产业发展区域开始 -->
+                <div  class='con_title' >
+                    产业发展
+                </div>
+                <ul  class='con_ul' >
+                    <li  class='con_li' v-for='i in 4' >
+                        <img src="../../assets/images/newsInfo/theNewConsult.png" class='con_li_left'>
+                        <div  class='con_li_right'  >
+首都机场集团将于2020年10月10日在线举办首届“四型机场”技术创新大会。届时首都机场集团将发布“四型机场”建设需求，国内大型机场集团、民航科研院所、技术设备厂商、互联网科创企业将共聚一堂，交流成功经验、展示科创产品、建立合作契机。
+                        </div>
+                    </li>
+                </ul>
+                <!-- 产业发展区域结束 -->
+            </div>
+        <!-- 下部分版心区域结束 -->
     </div>
 </template>
 
@@ -42,7 +74,9 @@
             }
         },
         methods:{
-
+            topage(a){
+                this.$router.push({name:a})
+            }
         }
     }
 </script>
@@ -52,7 +86,6 @@
     width:100%;
     height:500px;
     position: relative;
-    background:pink;
     z-index: 1;
 }
 .banner_bg{
@@ -118,5 +151,49 @@
 }
 .btn_bottom_area_li:nth-last-child(1){
     margin-right:0;
+}
+.con_title{
+    width:100%;
+    font-size:30px;
+    display: flex;
+    justify-content: center;
+    margin-top:82px;
+    font-family:Source Han Sans CN;
+    font-weight:bold;
+    color:rgba(21,119,201,1);
+}
+.b_middle{
+    width:1100px;
+    margin:0 auto;
+}
+.con_ul{
+    margin-top:88px;
+    width:100%;
+    overflow: hidden;
+}
+.con_li{
+    width:500px;
+    height:228px;
+    float: left;
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+}
+.con_li:nth-child(2n+1){
+    margin-right:93px;
+}
+.con_li_left{
+    width:220px;
+    height:220px;
+    background:blue;
+}
+.con_li_right{
+    width:236px;
+    height:228px;
+    font-size:16px;
+    font-family:Source Han Sans CN;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    line-height:26px;
 }
 </style>
