@@ -4,7 +4,12 @@
             <div class="introduce_wrap">
                 <div class="intruduce_con">
                     <div class="title">{{ title }}</div>
-                    <video class="videoBox" src="../../assets/images/congressTopics/test123.mp4"></video>
+                    <!-- <video class="videoBox" src="../../assets/images/congressTopics/test123.mp4"></video> -->
+                    <div class="videoBox">
+                        <video width="1200" height="675" controls>
+                            <source src="../../assets/images/congressTopics/test123.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <div class="title">评价</div>
                     <div class="evalution_li" v-for="(item,index) in evalutionList" :key="index">
                         <div class="acount">{{ item.acount }}</div>
@@ -75,8 +80,6 @@
 .videoBox{
     height: 675px;
     width: 1200px;
-    background: crimson;
-    object-fit: fill;
 }
 /* 评论 */
 .evalution_li{

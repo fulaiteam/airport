@@ -45,20 +45,23 @@
                         url:'cloudExperience'
                     },
                     {
-                        name:'云会谈'
+                        name:'云会谈',
+                        url:'cloudTalks'
                     },
                     {
                         name:'新闻资讯',
                         url:'newsInfo'
                     },
                     {
-                        name:'合作伙伴'
+                        name:'合作伙伴',
+                        url:'cooperative'
                     },
                     {
                         name:'联系我们'
                     },
                     {
-                        name:'注册/登录'
+                        name:'注册/登录',
+                        url:'Login'
                     },
                 ]
             }

@@ -7,7 +7,7 @@
         </div>
         <div class="login_wrap">
             <div class="login" @keyup.enter="hjSubmite('user')">
-                <div class="login_center">欢迎登录</div>
+                <div class="login_center">注册</div>
                 <el-form
                     class="login_box"
                     ref="user"
@@ -16,6 +16,15 @@
                     <div class="role">观众</div>
                     <div class="message">
                         <div class="mes_box">
+                            <el-form-item class="mes_li" label="单  位" prop="danwei">
+                                <input type="text" placeholder="" class="mes_text" v-model="user.danwei">
+                            </el-form-item>
+                            <el-form-item class="mes_li" label="姓  名" prop="name">
+                                <input type="text" placeholder="" class="mes_text" v-model="user.name">
+                            </el-form-item>
+                            <el-form-item class="mes_li" label="邮  箱" prop="email">
+                                <input type="text" placeholder="" class="mes_text" v-model="user.email">
+                            </el-form-item>
                             <el-form-item class="mes_li" label="手机号" prop="phone">
                                 <input type="text" placeholder="" class="mes_text" v-model="user.phone">
                             </el-form-item>
@@ -26,10 +35,7 @@
                             </el-form-item>
                             <div class="mes_but">
                                 <div class="but">
-                                    <img @click="hjSubmite('user')" src="../assets/images/login/login.png" alt="">
-                                </div>
-                                <div class="but">
-                                    <img @click="torregister()" src="../assets/images/login/register.png" alt="">
+                                    <img @click="hjSubmite('user')" src="../assets/images/login/register.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -47,6 +53,7 @@
         validateSpace, 
         validateSpecial,
         validateMobile,
+        validateEmail,
         validateNumber
     } from '../assets/javascript/validate.js';
     export default {
@@ -56,10 +63,25 @@
                 codeShow:true,
                 btnTitle:'',
                 user: {
+                    danwei:'',
+                    name:'',
+                    email:'',
                     phone: '',
                     pas: ''
                 },
                 rules2: {   // 表单验条件
+                    danwei:[
+                        {validator: validateNull, trigger: 'blur'},//表单验证填写（必填项不能为空）
+                        {validator: validateLength, trigger: 'blur'},//表单验证填写（长度验证）
+                    ],
+                    name:[
+                        {validator: validateNull, trigger: 'blur'},//表单验证填写（必填项不能为空）
+                        {validator: validateLength, trigger: 'blur'},//表单验证填写（长度验证）
+                    ],
+                    email:[
+                        {validator: validateNull, trigger: 'blur'},//表单验证填写（必填项不能为空）
+                        {validator: validateEmail, trigger: 'blur'},//表单中输入邮箱验证
+                    ],
                     phone: [
                         {validator: validateNull, trigger: 'blur'},//表单验证填写（必填项不能为空）
                         {validator: validateLength, trigger: 'blur'},//表单验证填写（长度验证）
@@ -77,22 +99,12 @@
                 }
             }
         },
-        created() {
-            // this.changfouce();
-        },
         methods: {
-            /*  changfouce(){
-                console.log('666565')
-                this.$nextTick((x)=>{  
-                    console.log('this.$refs',this.$refs)
-                    this.$refs.input.focus();
-                })
-            }, */     
             hjSubmite(formName) {
                 // 管理登陆方法.
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        this._ajax('', {
+                        this._ajax('admin/adminLogin', {
                             account: this.user.name,
                             password: this.user.pas
                         }, data => {
@@ -106,9 +118,6 @@
                     }
                 });
             },
-            torregister(){
-                this.$router.push({name: 'register'});
-            },
             validateBtn(){
                 //倒计时
                 let time = 60;
@@ -117,9 +126,9 @@
                         clearInterval(timer);
                         this.codeShow = true;
                     } else {
-                        this.codeShow = false;
-                        this.btnTitle = time + '秒后重试';
-                        time--
+                            this.codeShow = false;
+                            this.btnTitle = time + '秒后重试';
+                            time--
                     }
                 },1000)
             },
@@ -145,10 +154,10 @@
     width: 100%;
     display: flex;
     justify-content: center;
-} 
+}
 .login{
     width: 841px;
-    height: 780px;
+    height: 958px;
 }
 .login .login_center{
     text-align: center;
@@ -161,10 +170,9 @@
     color:rgba(21,119,201,1);
 }
 .login_box{
-    height: 387px;
+    height: 567px;
     width: 841px;
-    box-shadow:0 1px 5px #000;
-    border-radius: 10px;
+    background:url('../assets/images/login/reggisterback.png')  no-repeat center;
 }
 .login .login_box .role{
     font-size: 20px;
@@ -172,7 +180,6 @@
     color: #535353;
     height: 80px;
     line-height: 80px;
-    border-bottom: 1px solid #ddd;
 }
 .login .login_box .message{
     display: flex;
@@ -183,7 +190,7 @@
 }
 .login .login_box .message .mes_li{
     width: 440px;
-    height: 65px;
+    height: 50px;
     line-height: 70px;
     display: flex;
     justify-content: flex-start;

@@ -5,7 +5,9 @@
                 <div class="sence_title">场景演示</div>
                 <div class="sence_box">
                     <div class="video_box">
-                        <video src="../../assets/images/congressTopics/test123.mp4"></video>
+                        <video width="800" height="454" controls>
+                            <source src="../../assets/images/congressTopics/test123.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="pro_name">
                         <div class="pro_title">产品名称</div>
