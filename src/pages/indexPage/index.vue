@@ -5,7 +5,7 @@
         <!-- 圆点区域开始 -->
         <div  class='dot_area_line' >
         <div   class='dot_area' >
-            <div   v-for='(item,index) in imglist'    :class="{ 'dot': true, 'dot_active': item.name == nowactive }"    :key='index'   @click='changenowactive(item.name,item.img)'  ></div>
+            <div   v-for='(item,index) in imglist'    :class="{ 'dot': true, 'active':item.name == nowactive}"    :key='index'   @click='changenowactive(item.name,item.img)'  ></div>
        
         </div>
         </div>
@@ -50,7 +50,6 @@
             changenowactive(a,b){
                 this.nowactive = a;
                 this.nowimg = b
-
             }
         }
     }
@@ -86,14 +85,15 @@
 .dot{
     width:12px;
     height:12px;
+    overflow: hidden;
     margin-top:9px;
     border-radius: 50%;
-    background:#666666;
-    opacity: 0.4;
+    background:rgba(255,255,255,1);
+    opacity: 0.5;
 }
-.dot_active{
-    background:white;
-    opacity: 1;
+.dot.active{
+    background:rgba(255,255,255,1);
+    opacity: 0.9;
 }
 .bottom_area_sch{
     position:absolute;

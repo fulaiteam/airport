@@ -2,18 +2,18 @@
     <div>
         <!-- 轮播图区域开始 -->
         <div   class='top_carousel_area' >
-            <img src="../../assets/images/newsInfo/banner_1.png"   class='banner_bg' >
+            <img :src="nowimg"   class='banner_bg' >
             <!-- 版心区域开始 -->
             <div  class='middle_area1100' >
                 <div  class='middle_area_content'  >
                    <div  class='btn_top_area' >
-                       <img src="../../assets/images/newsInfo/btn_left.png"    class='carousel_btn' >
+                       <img src="../../assets/images/newsInfo/btn_left.png"    class='carousel_btn'    @click='goNext(-1)'   >
                         <div class='specify_news' >专题报道</div>
-                        <img src="../../assets/images/newsInfo/btn_right.png"    class='carousel_btn' >
+                        <img src="../../assets/images/newsInfo/btn_right.png"     @click='goNext(1)'  class='carousel_btn' >
                    </div>
                    <div  class='btn_bottom_area' >
                        <ul  class='btn_bottom_area_ul'  >
-                           <li  class='btn_bottom_area_li' v-for='(item,index)  in  carouselarr'  :key='index'   >
+                           <li  :class='{btn_bottom_area_li:true,active:item.name == nowname}' v-for='(item,index)  in  carouselarr'     @click='changeActiveDot(item.name,item.img)'  :key='index'   >
 
                            </li>
                        </ul>
@@ -60,15 +60,20 @@
     export default {
         data(){
             return{
+                nowimg:require("@/assets/images/newsInfo/banner_1.png"),
+                nowname:'first',
                 carouselarr:[
                     {
+                        name:'first',
                         img:require("@/assets/images/newsInfo/banner_1.png"),
                     },
                     {
+                        name:'second',
                         img:require("@/assets/images/hj-login.jpg"),
                     },
                     {
-                        img:require("@/assets/images/congressTopics/table.png"),
+                        name:'third',
+                        img:require("@/assets/images/conference/orange_cloud.png"),
                     },
                 ]
             }
@@ -76,6 +81,23 @@
         methods:{
             topage(a){
                 this.$router.push({name:a})
+            },
+            changeActiveDot(name,img){
+                this.nowname = name;
+                this.nowimg = img;
+            },
+            goNext(a){
+                var a = a;
+                var arr = ['first','second','third'];
+                var arrLength = arr.length;
+                var initial = arr.indexOf(this.nowname);
+                if(a>0){
+                     var final = initial+a < arrLength ? initial+a : 0;
+                }else{
+                     var final = initial+a >=0 ? initial+a : arrLength-1;
+                }
+                this.nowname = this.carouselarr[final].name;
+                this.nowimg = this.carouselarr[final].img;
             }
         }
     }
@@ -147,10 +169,16 @@
     margin-right:21px;
     width:13px;
     height:13px;
-    background:url('../../assets/images/newsInfo/circle.png');
+    background:#FFFFFF;
+    opacity: 0.5;
+    border-radius: 50%;
 }
 .btn_bottom_area_li:nth-last-child(1){
     margin-right:0;
+}
+.btn_bottom_area_li.active{
+    opacity: 1;
+    
 }
 .con_title{
     width:100%;
