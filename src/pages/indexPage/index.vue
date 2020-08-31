@@ -1,10 +1,11 @@
 <template>
 <div>
     <div  class='ind_allbg' >
+        <img  :src="nowimg"    class='all_img_bg'  >
         <!-- 圆点区域开始 -->
         <div  class='dot_area_line' >
         <div   class='dot_area' >
-            <div   v-for='(item,index) in imglist'    :class="{ 'dot': true, 'dot_active': item.img == nowactive }"    :key='index'   @click='changenowactive(item.img)'  ></div>
+            <div   v-for='(item,index) in imglist'    :class="{ 'dot': true, 'dot_active': item.name == nowactive }"    :key='index'   @click='changenowactive(item.name,item.img)'  ></div>
        
         </div>
         </div>
@@ -27,39 +28,28 @@
     export default {
         data(){
             return{
-                nowactive:'',
+                nowactive:'first',
+                nowimg:require('@/assets/images/conference/clo_video.png'),
                 imglist:[
                     {
-                        img:'1'
+                        name:'first',
+                        img:require('@/assets/images/conference/clo_video.png')
                     },
                     {
-                        img:'2'
+                        name:'second',
+                        img:require('@/assets/images/conference/grey_cloud.png')
                     },
                     {
-                        img:'3'
-                    },
-                    {
-                        img:'4'
-                    },
-                    {
-                        img:'5'
-                    },
-                    {
-                        img:'6'
-                    },
-                    {
-                        img:'7'
-                    },
-                    {
-                        img:'8'
+                        name:'third',
+                        img:require('@/assets/images/conference/orange_cloud.png')
                     }
                 ]
             }
         },
         methods:{
-            changenowactive(a){
+            changenowactive(a,b){
                 this.nowactive = a;
-
+                this.nowimg = b
 
             }
         }
@@ -71,7 +61,13 @@
     width:100%;
     height:1008px;
     position: relative;
-    background:darkblue;
+}
+.all_img_bg{
+    position:absolute;
+    width:100%;
+    height:1008px;
+    left:0;
+    top:0;
 }
 .dot_area_line{
     width:12px;
