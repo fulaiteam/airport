@@ -5,6 +5,11 @@
 
             </div>
         </div>
+
+
+
+
+
         <div class="intrduce">
             <div class="introduce_wrap">
                 <div class="talk_title">云会谈</div>
@@ -22,9 +27,18 @@
             </div>
         </div>
     </div>
+
+
+
+
+    
 </template>
 
 <script>
+import Vue from "vue";
+import MessageBox from "../../components/chat/index.vue";
+import Message from "../../components/chat/message.vue";
+import { mapState, mapActions } from "vuex";
     export default {
         data(){
             return{
@@ -92,8 +106,41 @@
                 ]
             }
         },
+        created(){
+            
+        },
+          computed: {
+            chatList() {
+            return this.$store.state.chat.msgList;
+            }
+        },
+        components:{
+            MessageBox,
+            Message
+        },
         methods:{
-          
+              contactTypeChange(type) {
+      this.$data.activeKey = type.key;
+      this.$router.push(`/${type.key}`);
+      if (this.broken && this.collapsed) {
+        this.$data.collapsed = false;
+      }
+
+      switch (type.key) {
+        case "contact":
+          this.$refs.messageBox.onGetContactUserList();
+          break;
+        case "group":
+          this.$refs.messageBox.onGetGroupUserList();
+          break;
+        case "chatroom":
+          this.$refs.messageBox.onGetChatroomUserList();
+          break;
+        default:
+          break;
+      }
+      this.$refs.messageList.getCurrentMsg(type.key);
+    },
         }
     }
 </script>

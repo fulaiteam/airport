@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import store from '../store/index'
+import Login from '../pages/login/index.vue';
+import Contact from '../pages/chat/index.vue';
 
 Vue.use(Router)
 
@@ -169,11 +171,49 @@ const router = new Router({
                     name: 'contactUs',
                     component: resolve => require(['@/pages/contactUs/contactUs'], resolve),
                 },
+                
+
 
 
 
             ]
         },
+        {  //im登录
+            path: '/im',
+            name: 'imLogin',
+            component: resolve => require(['@/pages/imLogin/imLogin'], resolve),
+        },
+        {
+            path: '/contact/:id',
+            name: 'contact',
+            component: resolve => require(['@/pages/chat/index'], resolve)
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            component: resolve => require(['@/pages/chat/index'], resolve)
+        },
+        {
+            path: '/group/:id',
+            name: 'group',
+            component: resolve => require(['@/pages/chat/index'], resolve)
+        },
+        {
+            path: '/group',
+            name: 'group',
+            component: resolve => require(['@/pages/chat/index'], resolve)
+        },
+        {
+            path: '/chatroom/:id',
+            name: 'chatroom',
+            component: resolve => require(['@/pages/chat/index'], resolve)
+        },
+        {
+            path: '/chatroom',
+            name: 'chatroom',
+            component: resolve => require(['@/pages/chat/index'], resolve)
+        },
+
        
     ]
 })
