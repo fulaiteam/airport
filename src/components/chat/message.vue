@@ -1,5 +1,6 @@
 <template>
-<div>
+<div   >
+  <div   class='all_bh' >
   <!--聊天信息区域展示开始  -->
   <div  class='message_content' >
     <div
@@ -7,10 +8,17 @@
         :key="i"
         :class="{message_left:!item.bySelf,message_right:item.bySelf}"
     >
-    {{item.msg}}
+    <div  class='message_c_top'  >
+       {{item.from}}  &nbsp&nbsp&nbsp    {{renderTime(item.time)}}
+    </div>
+    <div  class='message_c_bottom'  >
+      {{item.msg}}
+    </div>
+    
     </div>
   </div>
   <!--聊天信息区域展示结束  -->
+  </div>
   <!--发送信息区域开始  -->
   <div  class='text_area' >
  <textarea   class='text_area_mes'      v-model="message"     placeholder="消息" ></textarea>
@@ -416,26 +424,34 @@ export default {
 </script>
 
 <style scoped >
+.all_bh{
+  width:618px;
+  overflow-y: auto;
+
+}
+
 .message_content{
   width:600px;
   height:600px;
-  background: #eeeeee;
+ 
+  border:2px solid #eeeeee;
 }
 .message_left{
-  margin-top:3px;
-  width:100%;
-  height:30px;
+  margin-top:5px;
+    width:600px;
+    padding-left:10px;
   font-size: 20px;
   text-align: left;
-  background:orange;
+  box-sizing: border-box;
+  background: #eeeeee;;
 }
 .message_right{
-  margin-top:3px;
-  width:100%;
-  height:30px;
+  margin-top:5px;
+  width:600px;
+  box-sizing: border-box;
   font-size: 20px;
   text-align: right;
-  background:greenyellow;
+  background: #eeeeee;;
 }
 .text_area{
     width:600px;
@@ -449,6 +465,16 @@ export default {
 }
 .text_area_btn{
   float:right;
+}
+.message_c_top{
+  width:600px;
+  font-size:10px;
+ word-wrap: break-word
+}
+.message_c_bottom{
+  width:600px;
+  font-size: 17px;
+  word-wrap: break-word
 }
 </style>
 

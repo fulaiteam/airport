@@ -1,11 +1,14 @@
 <template>
-<div>
-    群组
-        <MessageBox :type="activeKey" :select="select" ref="messageBox" />
+<div  class='all_bgp' >
+  <NavBar></NavBar>
+    <div  class='top_title_area margin_top_20' >
+<MessageBox     :type="activeKey" :select="select" ref="messageBox" />
+    </div>
+        
         <!-- <MessageBox v-if="activeKey == 'chatroom'"  type="chatroom" />
         <MessageBox v-if="activeKey == 'group'" type="group" />-->
 
-
+<div  class='top_title_area margin_top_20' >
         <Message
           v-if='!collapsed'
           :type="activeKey"
@@ -14,12 +17,14 @@
           :showUserList="showUserList"
           ref="messageList"
         />
+        </div>
 
 
 </div>
 </template>
 
 <script>
+import NavBar  from '../navBar.vue';
 import Vue from "vue";
 import MessageBox from "../../components/chat/index.vue";
 import Message from "../../components/chat/message.vue";
@@ -100,6 +105,7 @@ export default {
       this.$refs.messageList.select(i);
       if (this.broken) {
         this.$data.collapsed = true;
+        this.$data.canfasong = true;
       }
     },
     GetFirendBlack() {
@@ -116,20 +122,20 @@ export default {
         this.$data.collapsed = false;
       }
 
-      switch (type.key) {
-        case "contact":
-          this.$refs.messageBox.onGetContactUserList();
-          break;
-        case "group":
-          this.$refs.messageBox.onGetGroupUserList();
-          break;
-        case "chatroom":
-          this.$refs.messageBox.onGetChatroomUserList();
-          break;
-        default:
-          break;
-      }
-      this.$refs.messageList.getCurrentMsg(type.key);
+      // switch (type.key) {
+      //   case "contact":
+      //     this.$refs.messageBox.onGetContactUserList();
+      //     break;
+      //   case "group":
+      //     this.$refs.messageBox.onGetGroupUserList();
+      //     break;
+      //   case "chatroom":
+      //     this.$refs.messageBox.onGetChatroomUserList();
+      //     break;
+      //   default:
+      //     break;
+      // }
+      // this.$refs.messageList.getCurrentMsg(type.key);
     },
     addModalChange() {
       this.$data.showAddOptions = !this.$data.showAddOptions;
@@ -190,7 +196,8 @@ export default {
     CreateGroup,
     VidoeSetting,
     GroupRequest,
-    GroupInvite
+    GroupInvite,
+    NavBar
   }
 };
 </script>
@@ -203,6 +210,9 @@ export default {
   font-weight: 400;
   font-family: 'vant-icon';
   src: url(https://img.yzcdn.cn/vant/vant-icon-3a7dc2.woff2) format('woff2'), url(https://img.yzcdn.cn/vant/vant-icon-3a7dc2.woff) format('woff'), url(https://img.yzcdn.cn/vant/vant-icon-3a7dc2.ttf) format('truetype');
+}
+.all_bgp{
+  width:100%;
 }
 .layout-header {
   height: 100px !important;
@@ -247,6 +257,17 @@ export default {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
 }
+.top_title_area{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ccccccc_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .tip-style {
   display: inline-block;
   width: 10px;
@@ -255,6 +276,9 @@ export default {
   border-radius: 50%;
   position: relative;
   top: 10px;
+}
+.margin_top_20{
+  margin-top:20px;
 }
 .contact {
   width: 100%;

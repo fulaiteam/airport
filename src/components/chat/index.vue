@@ -23,7 +23,7 @@
       :key="getKey(item)"
       @click="select2(item, getKey(item))"
      >
-    {{item.name}}
+    {{item.name}}  {{nowstatusii}}
     </div>
   </div>
 </template>
@@ -40,6 +40,7 @@ import GetGroupInfo from "../group/groupInfo.vue";
 export default {
   data() {
     return {
+      nowstatusii:'正在连接中...',
       activedKey: {
         contact: "",
         group: "",
@@ -88,7 +89,22 @@ export default {
     // 取到黑名单列表值将黑名单匹配用户列表进行筛选
     let blackList = this.$store.state.friendModule.blackList;
     this.$store.commit("changeUserList", blackList);
-    console.log(this.userList)
+    var vm = this;
+    setTimeout(function(){
+        var item = vm.userList.group[0];
+        vm.select2(item,item.groupid)
+    if(item){
+      vm.nowstatusii = ''
+    }else{
+       vm.nowstatusii = '点击连接客服'
+    }
+    },2000)
+      
+    
+  },
+  created(){
+
+    
   },
   updated() {
     this.scollBottom();
@@ -657,6 +673,9 @@ export default {
 .cube_group{
   width:200px;
   height:30px;
-  background:pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: orange;
 }
 </style>
