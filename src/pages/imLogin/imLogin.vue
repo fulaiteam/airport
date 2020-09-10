@@ -45,5 +45,17 @@ export default{
 </script>
 
 <style  scoped>
-
+.chat_room_area{
+	width:1200px;
+	margin:100px auto;
+	overflow: hidden;
+}
+.chat_room{
+	margin-left:30px;
+	margin-top:30px;
+	width:200px;
+	height:300px;
+	float:left;
+	background:pink;
+}
 </style>
